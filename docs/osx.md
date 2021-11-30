@@ -1,7 +1,6 @@
 # Build on OSX
 
 Check [https://www.wwdcnotes.com/notes/wwdc20/10214/](https://www.wwdcnotes.com/notes/wwdc20/10214/) for information how to get your Mac app running on Apple silicon (arm 64 native architecture)
-{: .note}
 
 ## Pre-requisites
 
