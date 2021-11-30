@@ -1,7 +1,7 @@
 # Build on OSX
 
 **IMPORTANT**
-Since the latest Matlab R2021b version is still not running natively on Apple Silicon (M1 processor) you can not use the building process described below on an Apple Silicon computer. You can use the libraries found in [builds](builds/macOS)
+Since the latest Matlab R2021b version is still not running natively on Apple Silicon (M1 processor) you can not use the building process described below on an Apple Silicon computer. You can use the libraries found in [builds](builds/macOS). Simply copy the libs in that directory - NOT in the `arm64` directory - to the `/usr/local/lib` directory (need `sudo` command for copying) before you starting the matlab mex-ing process.
 
 Check [https://www.wwdcnotes.com/notes/wwdc20/10214/](https://www.wwdcnotes.com/notes/wwdc20/10214/) for information how to get your Mac app running on Apple silicon (arm 64 native architecture)
 
