@@ -15,7 +15,7 @@ bin/*
 build/
 floating.obj
 target.obj
-libmeshmonk.dylib
+./libmeshmonk.dylib
 example
 meshmonkexe/
 registrationexample/
