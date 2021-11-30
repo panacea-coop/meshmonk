@@ -1,106 +1,175 @@
+<<<<<<< HEAD
+
+*   [Build on OSX](#InstallMeshMonkonmacOS-BuildonOSX)
+    *   [Pre-requisites](#InstallMeshMonkonmacOS-Pre-requisites)
+        *   [Brew](#InstallMeshMonkonmacOS-Brew)
+        *   [wget](#InstallMeshMonkonmacOS-wget)
+        *   [CMake](#InstallMeshMonkonmacOS-CMake)
+    *   [Download MeshMonk](#InstallMeshMonkonmacOS-DownloadMeshMonk)
+    *   [Install libraries](#InstallMeshMonkonmacOS-Installlibraries)
+        *   [1\. Install eigen](#InstallMeshMonkonmacOS-1.Installeigen)
+        *   [2. (optional) 'Install' nanoflann](#InstallMeshMonkonmacOS-2.(optional)'Install'nanoflann)
+        *   [3\. Install OpenMesh](#InstallMeshMonkonmacOS-3.InstallOpenMesh)
+    *   [MeshMonk](#InstallMeshMonkonmacOS-MeshMonk)
+        *   [Compile](#InstallMeshMonkonmacOS-Compile)
+
+Build on OSX
+=======
 # Build on OSX
+>>>>>>> parent of 606b284 (layout improvements)
+============
 
+Check [https://www.wwdcnotes.com/notes/wwdc20/10214/](https://www.wwdcnotes.com/notes/wwdc20/10214/) for information how to get your Mac app running on Apple silicon (arm 64 native architecture)
+
+<<<<<<< HEAD
+Pre-requisites
+=======
 ## Pre-requisites
-### Brew
-Install *brew* on OSX. 
+>>>>>>> parent of 606b284 (layout improvements)
+--------------
 
-```bash
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+### Brew
+
+Install _brew_ on OSX.
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 ### wget
+
 After installing brew, we can use brew to install wget (so you can download files from the command-line):
-```bash
+
+```
 brew install wget
 ```
 
 ### CMake
-We need cmake to configure and build OpenMesh and MeshMonk. We're copying here the installation instructions from [this page](http://tudat.tudelft.nl/projects/tudat/wiki/Install_on_Mac_OS_X#Install-CMake-on-Mac-OS-X):
-1. Download the latest binary distribution for Mac OSX from the [Downloads page](https://cmake.org/download/)
-2. Open the resulting .dmg-file you just downloaded
-3. Drag and drop the CMake icon to the Applications folder icon.
-4. Launch CMake (from you Applications folder, for example)
-5. Add CMake to your path so you can call it from command-line:
-```bash
+
+We need cmake to configure and build OpenMesh and MeshMonk.
+
+1.  Download the latest binary distribution for Mac OSX from the [Downloads page](https://cmake.org/download/)
+    
+2.  Open the resulting .dmg-file you just downloaded
+    
+3.  Drag and drop the CMake icon to the Applications folder icon.
+    
+4.  Launch CMake (from you Applications folder, for example)
+    
+5.  Add CMake to your path so you can call it from command-line:
+    
+
+```
 sudo mkdir -p /usr/local/bin
 sudo /Applications/CMake.app/Contents/bin/cmake-gui --install=/usr/local/bin
 ```
-6. Verify your installation (you might have to close and open a new Terminal):
-```bash
+
+1.  Verify your installation (you might have to close and open a new Terminal):
+    
+
+```
 cmake --version
 ```
 
-## Install libraries
+Download MeshMonk
+-----------------
 
-### 1. Install eigen
-1. Use brew to install eigen
-```bash
+Make a 'projects' folder in your home directory and go into it(or go into a directory you are already using for GitHub projects):
+
+```
+mkdir ~/projects
+cd ~/projects
+```
+
+Clone the online MeshMonk repository
+
+```
+git clone https://gitlab.kuleuven.be/u0007185/meshmonk.git
+```
+
+Install libraries
+-----------------
+
+### 1\. Install eigen
+
+*   Use brew to install eigen
+    
+
+```
 brew install eigen
 ```
+
 or upgrade:
-```bash
+
+```
 brew upgrade eigen
 ```
 
-2. Make a symlink to the main 'Eigen' folder from /usr/local/include/ so that you can include Eigen in your projects.
-```bash
-ln -s /usr/local/Cellar/eigen/3.3.7/include/eigen3/Eigen /usr/local/include/Eigen
+*   Make a symlink to the main 'Eigen' folder from /usr/local/include/ so that you can include Eigen in your projects.
+    
+
+Check where brew installs the eigen package (e.g. `/opt/homebrew/Cellar/eigen` or `/usr/local/Cellar/eigen`) and adapt the `ln` command hereunder
+
+```
+sudo mkdir -p /usr/local/include
+sudo ln -s /opt/homebrew/Cellar/eigen/3.4.0_1/include/eigen3/Eigen /usr/local/include/Eigen
 ```
 
-### 2. _(optional)_ 'Install' nanoflann
+### 2. _(optional)_ 'Install' nanoflann
+
 Like Eigen, nanoflann is also a header-only library. There is only one header file you need, so we deliver that in the meshmonk repository under '/vendor' directory. So all that's left is to copy that to /usr/local/include:
-```bash
-sudo cp /home/user/projects/meshmonk/vendor/nanoflann.hpp /usr/local/include/
+
+```
+sudo cp ~/projects/meshmonk/vendor/nanoflann.hpp /usr/local/include/
 ```
 
-### 3. Install OpenMesh
+### 3\. Install OpenMesh
 
-```bash
-cd /Users/user/Downloads/
-wget http://www.openmesh.org/media/Releases/6.3/OpenMesh-6.3.zip
-unzip OpenMesh-6.3.zip
-cd OpenMesh-6.3
+See [https://www.graphics.rwth-aachen.de/media/openmesh\_static/Documentations/OpenMesh-Doc-Latest/a04315.html#compilers](https://www.graphics.rwth-aachen.de/media/openmesh_static/Documentations/OpenMesh-Doc-Latest/a04315.html#compilers)
+
+```
+cd ~/Downloads/
+wget https://www.graphics.rwth-aachen.de/media/openmesh_static/Releases/8.1/OpenMesh-8.1.zip
+unzip OpenMesh-8.1.zip
+cd OpenMesh-8.1
 mkdir build
 cd build
-cmake ..
+cmake .. -DBUILD_APPS=OFF
 make
 ```
 
-Copy/paste the *.dylib* files:
-```bash
-sudo sudo cp Build/lib/*.* /usr/local/lib/
+Copy/paste the _.dylib_ files:
+
+```
+sudo cp Build/lib/*.* /usr/local/lib/
 ```
 
 Copy/paste the header files
-```bash
-cp -R /Users/user/Downloads/OpenMesh-6.3/src/OpenMesh /usr/local/include/
+
+```
+sudo cp -R ~/Downloads/OpenMesh-8.1/src/OpenMesh /usr/local/include/
 ```
 
-## MeshMonk
+MeshMonk
+--------
 
 ### Compile
-Make a 'projects' folder in your home directory and go into it(or go into a directory you are already using for GitHub projects):
-```bash
-cd
-mkdir projects
-cd projects
+
+Enter the subfolder with the c++ sourcecode and use `make` to compile it. As an alternative to this step, you may use the precompiled version of 'libmeshmonk.dylib' in the 'builds' folder of the meshmonk download.
+
 ```
-Clone the online MeshMonk repository
-```
-git clone https://github.com/TheWebMonks/meshmonk.git
-```
-Enter the subfolder with the c++ sourcecode and use `make` to compile it. As an alternative to this step, you may use the precompiled version of 'libmeshmonk.dylib' in the 'builds' folder of the meshmonk download. 
-```bash
-cd meshmonk
+cd ~/projects/meshmonk
 make
 ```
+
 From the meshmonk folder, copy the shared library object libmeshmonk.dylib to /usr/local/lib
-```bash
-cp libmeshmonk.dylib /usr/local/lib
+
+```
+sudo cp libmeshmonk.dylib /usr/local/lib
 ```
 
 Copy the header files to /usr/local/include/
-```bash
-(cd /Users/user/projects/meshmonk/ && find . -name '*.hpp' -print | tar --create --files-from -) | (cd /usr/local/include/ && sudo tar xvfp -)
-```
 
+```
+(cd ~/projects/meshmonk/ && find . -name '*.hpp' -print | tar --create --files-from -) | (cd /usr/local/include/ && sudo tar xvfp -)
+```
