@@ -2,7 +2,7 @@
 MeshMonk can be built and installed on:
 
 * [Ubuntu 16.04](docs/ubuntu.md)
-* [OSX](docs/osx.md)
+* [OSX](docs/osx.md) (not on Apple Silicon for the moment)
 * [Windows](docs/windows.md)
 
 # Using meshmonk
