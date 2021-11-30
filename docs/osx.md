@@ -61,7 +61,7 @@ cd ~/projects
 Clone the online MeshMonk repository
 
 ```
-git clone https://gitlab.kuleuven.be/u0007185/meshmonk.git
+git clone https://gitlab.kuleuven.be/mirc/meshmonk.git
 ```
 
 Install libraries
