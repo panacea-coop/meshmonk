@@ -27,6 +27,8 @@ setenv('LD_LIBRARY_PATH', p);
 ```
 
 ### Mexing meshmonk functions
+**on Apple Silicon (M1 processor)** - You can't use the installation description on [OSX](docs/osx.md). Simply copy the libs in [builds](builds/macOS) to the `/usr/local/lib` directory (need `sudo` command for copying)
+
 On ubuntu/mac: 
 In matlab, go into the projects/meshmonk/matlab folder (or wherever you put the meshmonk repository) and run the mex_all.m script to mex all the meshmonk functions you need.
 
