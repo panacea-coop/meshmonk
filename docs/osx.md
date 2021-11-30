@@ -1,32 +1,9 @@
-<<<<<<< HEAD
-
-*   [Build on OSX](#InstallMeshMonkonmacOS-BuildonOSX)
-    *   [Pre-requisites](#InstallMeshMonkonmacOS-Pre-requisites)
-        *   [Brew](#InstallMeshMonkonmacOS-Brew)
-        *   [wget](#InstallMeshMonkonmacOS-wget)
-        *   [CMake](#InstallMeshMonkonmacOS-CMake)
-    *   [Download MeshMonk](#InstallMeshMonkonmacOS-DownloadMeshMonk)
-    *   [Install libraries](#InstallMeshMonkonmacOS-Installlibraries)
-        *   [1\. Install eigen](#InstallMeshMonkonmacOS-1.Installeigen)
-        *   [2. (optional) 'Install' nanoflann](#InstallMeshMonkonmacOS-2.(optional)'Install'nanoflann)
-        *   [3\. Install OpenMesh](#InstallMeshMonkonmacOS-3.InstallOpenMesh)
-    *   [MeshMonk](#InstallMeshMonkonmacOS-MeshMonk)
-        *   [Compile](#InstallMeshMonkonmacOS-Compile)
-
-Build on OSX
-=======
 # Build on OSX
->>>>>>> parent of 606b284 (layout improvements)
-============
 
 Check [https://www.wwdcnotes.com/notes/wwdc20/10214/](https://www.wwdcnotes.com/notes/wwdc20/10214/) for information how to get your Mac app running on Apple silicon (arm 64 native architecture)
 
-<<<<<<< HEAD
-Pre-requisites
-=======
 ## Pre-requisites
->>>>>>> parent of 606b284 (layout improvements)
---------------
+
 
 ### Brew
 
